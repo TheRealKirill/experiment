@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>OKNO</title>
+    <link rel="stylesheet" href="/style_registration.css">
+</head>
+
+<body>
+    <section>
+        <form class="form" action="/register" method="post">
+            <input class="input" name="email" type="email" placeholder="Your Email">
+            <input class="input" name="password" type="password" required minlength="6" maxlength="20"
+                placeholder="Your Password">
+            <button class="input"> Зарегистрироваться </button>
+        </form>
+    </section>
+
+    <script>
+        document.querySelector(".form").addEventListener("submit", async function (event) {
+            event.preventDefault();
+            let obj = {
+                "email": this.email.value,
+                "password": this.password.value
+            };
+
+            try {
+                const response = await fetch("http://localhost:3000/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json;charset=utf-8"
+                    },
+                    body: JSON.stringify(obj)
+                });
+
+                const jsonn = await response.json();
+                const errEmail = document.querySelector(".window");
+
+                if (jsonn.error) {
+                    if (!errEmail) {
+                        let div = document.createElement("div");
+                        div.classList.add("window");
+                        div.textContent = jsonn.error;
+                        document.body.append(div);
+                    }
+                } else {
+                    if (errEmail) errEmail.remove();
+                    window.location.replace(`/as/id${jsonn.id}`)
+                }
+            } catch { }
+        });
+    </script>
+</body>
+
+</html>
