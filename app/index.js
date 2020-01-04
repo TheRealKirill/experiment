@@ -35,16 +35,16 @@ const imgs = async function () {
             content.append(text);
             let button
             if (item.text.length > 209) {
-                text.textContent = item.text.slice(0, 206) + '...';
-                button = document.createElement('button');
+                text.textContent = item.text.slice(0, 206) + "...";
+                button = document.createElement("button");
                 button.className = "content-button";
-                button.textContent = 'читать полностью';
+                button.textContent = "читать полностью";
                 text.append(button);
             } else {
                 text.textContent = item.text;
             }
             if (button) {
-                button.addEventListener('click', () => {
+                button.addEventListener("click", () => {
                     text.textContent = item.text;
                     button.remove();
                 })
@@ -66,7 +66,7 @@ const imgs = async function () {
         } else if (!checkingLiked) {
             like.style.background = `no-repeat center/100% url("/img/false.svg")`;
         }
-        like.addEventListener('click', eventPresses);
+        like.addEventListener("click", eventPresses);
         likeWrapper.append(like);
 
     })
