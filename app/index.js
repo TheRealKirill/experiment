@@ -3,18 +3,19 @@ let offset = 0;
 let totalCount;
 let observer;
 let target;
-const userId = String(window.location)
-    .split('/')[4]
-    .slice(2)
+
 
 const imgs = async function () {
     const response = await fetch(`/hallo?offset=${offset}`, {
-        method: "GET"
+        method: "GET",
+        credentials: "same-origin"
     });
     offset += 10;
     if (target) observer.unobserve(target)
     const obj = await response.json();
     totalCount = obj.totalCount;
+
+    //alert(document.cookie.split(';').some((item) => item == `id=${userId}`));/////////////////////////////
 
     obj.list.forEach((item) => {
         let post = document.createElement("div");
@@ -60,10 +61,10 @@ const imgs = async function () {
         let like = document.createElement("div");
         like.className = "likeWrapper-like";
         like.name = item.id;
-        const checkingLiked = item.isLiked.some((item) => item == userId);
-        if (checkingLiked) {
+        //const checkingLiked = item.isLiked.some((item) => item == userId);///////////////////////////////
+        if (item.isLiked) {
             like.style.background = `no-repeat center/100% url("/img/true.svg")`;
-        } else if (!checkingLiked) {
+        } else if (!item.isLiked) {
             like.style.background = `no-repeat center/100% url("/img/false.svg")`;
         }
         like.addEventListener("click", eventPresses);
@@ -91,11 +92,13 @@ const eventPresses = async function eventPresses(event) {
     const obj = {
         isLiked: liked
     };
-    await fetch(`/${userId}/postLikes/${event.target.name}`, {
+    console.log('+')
+    await fetch(`/postLikes/${event.target.name}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json;charset=utf-8"
         },
+        credentials: "include",
         body: JSON.stringify(obj)
     });
 }

@@ -32,6 +32,7 @@
                     headers: {
                         "Content-Type": "application/json;charset=utf-8"
                     },
+                    credentials: "same-origin",
                     body: JSON.stringify(obj)
                 });
 
@@ -47,8 +48,7 @@
                     }
                 } else {
                     if (errEmail) errEmail.remove();
-                    console.log(jsonn.id);
-                    window.location.replace(`/as/id${jsonn.id}`)
+                    window.location.replace(`/`)
                 }
             } catch { }
         });

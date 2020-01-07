@@ -70,6 +70,16 @@
     font-family: 'Roboto';
 }
 
+.div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.end {
+    width: 120px;
+    height: 30px;
+}
+
 .post {
     margin-top: 5px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
