@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=cyrillic');
+
+/*.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto';
+}
+
+.post {
+    margin-top: 20px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content-data {
+    font-size: 12px;
+    color: #AEAEAE;
+}
+
+.content-text {
+    word-wrap: break-word;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 500px;
+    margin-top: 15px;
+}
+
+.content-button {
+    font-weight: 500;
+    border: 0px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 1px 10px;
+    margin-left: 10px;
+    background: #F76CD0;
+    color: white;
+}
+
+.content-img {
+    width: 500px;
+    height: 500px;
+    margin-top: 20px;
+    background: no-repeat center/100% url(ykkykky/img/00a_wm.jpg);
+}
+
+.likeWrapper {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 540px;
+}
+
+.likeWrapper-like {
+    margin: 10px 0 20px 20px;
+    width: 30px;
+    height: 30px;
+    background: no-repeat center/100% url(ykkykky/img/like_outline_24.svg);
+    cursor: pointer;
+}*/
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto';
+}
+
+.div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.end {
+  width: 120px;
+  height: 30px;
+}
+
+.post {
+  margin-top: 5px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.content {
+  padding: 10px;
+}
+
+.content-data {
+  font-size: 10px;
+  color: #aeaeae;
+}
+
+.content-text {
+  word-wrap: break-word;
+  line-height: 18px;
+  font-size: 13px;
+  width: 200px;
+  margin-top: 7px;
+}
+
+.content-button {
+  font-weight: 500;
+  border: 0px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 4px;
+  padding: 1px 10px;
+  background: #f76cd0;
+  color: white;
+}
+
+.content-img {
+  width: 200px;
+  height: 200px;
+  margin-top: 10px;
+}
+
+.likeWrapper {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  width: 220px;
+}
+
+.likeWrapper-like {
+  margin: 5px 0 10px 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background: chocolate;
+}
+
+.comment {
+  display: flex;
+}
+
+.comment-input {
+  border: solid #aeaeae 1px;
+  margin: 0 5px 5px 20px;
+  height: 30px;
+  resize: none;
+}
+
+.comment-button {
+  height: 30px;
+  margin: 0 20px 25px 0;
+}
+
+@media (min-width: 375px) {
+  .post {
+    margin-top: 7px;
+  }
+
+  .content {
+    padding: 14px;
+  }
+
+  .content-data {
+    font-size: 11px;
+  }
+
+  .content-text {
+    line-height: 21px;
+    font-size: 14px;
+    width: 320px;
+    margin-top: 14px;
+  }
+
+  .content-button {
+    margin: 0 0 0 10px;
+    background: #f76cd0;
+  }
+
+  .content-img {
+    width: 320px;
+    height: 320px;
+    margin-top: 14px;
+  }
+
+  .likeWrapper {
+    width: 348px;
+  }
+
+  .likeWrapper-like {
+    margin: 7px 0 14px 14px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 425px) {
+  .post {
+    margin-top: 13px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+
+  .content-text {
+    line-height: 22px;
+    font-size: 15px;
+    width: 380px;
+    margin-top: 16px;
+  }
+
+  .content-button {
+    margin: 4px 0 0 0;
+    background: #f76cd0;
+  }
+
+  .content-img {
+    width: 380px;
+    height: 380px;
+    margin-top: 16px;
+  }
+
+  .likeWrapper {
+    width: 412px;
+  }
+
+  .likeWrapper-like {
+    margin: 8px 0 16px 16px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 768px) {
+  .post {
+    margin-top: 20px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .content-data {
+    font-size: 12px;
+  }
+
+  .content-text {
+    line-height: 24px;
+    font-size: 16px;
+    width: 500px;
+    margin-top: 15px;
+  }
+
+  .content-button {
+    margin: 6px 0 0 0;
+    background: #f76cd0;
+  }
+
+  .content-img {
+    width: 500px;
+    height: 500px;
+    margin-top: 20px;
+  }
+
+  .likeWrapper {
+    width: 540px;
+  }
+
+  .likeWrapper-like {
+    margin: 10px 0 20px 20px;
+    width: 30px;
+    height: 30px;
+  }
+}
