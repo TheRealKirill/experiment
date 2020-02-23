@@ -1,0 +1,102 @@
+{
+  "posts": [
+    {
+      "postId": "1",
+      "infoPost": {
+        "data": "12.01.2019",
+        "background": "red",
+        "liked": [1, 2],
+        "comments": [1, 3]
+      }
+    },
+    {
+      "postId": "2",
+      "infoPost": {
+        "data": "11.01.2019",
+        "background": "green",
+        "liked": [1, 3],
+        "comments": [2, 3]
+      }
+    },
+    {
+      "postId": "3",
+      "infoPost": {
+        "data": "12.01.2000",
+        "background": "black",
+        "liked": [2],
+        "comments": []
+      }
+    },
+    {
+      "postId": "4",
+      "infoPost": {
+        "data": "12.01.2019",
+        "background": "blue",
+        "liked": [1, 2],
+        "comments": [1, 3]
+      }
+    },
+    {
+      "postId": "5",
+      "infoPost": {
+        "data": "11.01.2019",
+        "background": "green",
+        "liked": [1, 3],
+        "comments": [2, 3]
+      }
+    },
+    {
+      "postId": "6",
+      "infoPost": {
+        "data": "12.01.2000",
+        "background": "orange",
+        "liked": [2],
+        "comments": []
+      }
+    },
+    {
+      "postId": "7",
+      "infoPost": {
+        "data": "12.01.2019",
+        "background": "red",
+        "liked": [1, 2],
+        "comments": [1, 3]
+      }
+    },
+    {
+      "postId": "8",
+      "infoPost": {
+        "data": "11.01.2019",
+        "background": "pink",
+        "liked": [1, 3],
+        "comments": [2, 3]
+      }
+    },
+    {
+      "postId": "9",
+      "infoPost": {
+        "data": "12.01.2000",
+        "background": "black",
+        "liked": [2],
+        "comments": []
+      }
+    }
+  ],
+  "infoComments": {
+    "1": {
+      "id": "1",
+      "userId": "1",
+      "text": "He"
+    },
+    "2": {
+      "id": "2",
+      "userId": "2",
+      "text": "oooooooooo"
+    },
+    "3": {
+      "id": 3,
+      "userId": 1,
+      "text": "Kirill"
+    }
+  }
+}
