@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
+import { setNewCommentThunk } from '../../../redux/posts_reducer';
+import { useDispatch } from 'react-redux';
 
 const NewComments = props => {
   const [text, setText] = useState('');
+  const dispatch = useDispatch();
 
-  const inputNewTextComment = event => {
+  const onChangeNewComment = event => {
     const { value } = event.target;
     setText(value);
   };
 
   const addComment = () => {
-    props.setNewCommentThunk(
-      text,
-      props.idPosts,
-      props.commentId,
-      props.userId
+    dispatch(
+      setNewCommentThunk(text, props.idPosts, props.commentId, props.userId)
     );
     setText('');
   };
@@ -21,7 +21,7 @@ const NewComments = props => {
   return (
     <div className="comment">
       <textarea
-        onChange={inputNewTextComment}
+        onChange={onChangeNewComment}
         value={text}
         className="comment-input"
       ></textarea>

@@ -1,39 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   removeCookiesIdThunk,
   getNextPortionPostsThunk,
-  setNewCommentThunk,
 } from '../../redux/posts_reducer';
 
 import { useInView } from 'react-intersection-observer';
-
-import Post from './Post';
+import Content from './Content/Content';
 import NewComments from './Comment/NewComments';
 import Comment from './Comment/Comment';
 import likeTrye from './img/true.svg';
 import likeFalse from './img/false.svg';
 
-const PostContainer = props => {
+const Posts = props => {
   const [number, setNumber] = useState(0);
   const [ref, inView, entry] = useInView({ triggerOnce: true });
+  const dispatch = useDispatch();
+  const posts = useSelector(state => state.posts.posts);
+  const infoComments = useSelector(state => state.posts.infoComments);
+  const userId = useSelector(state => state.posts.userId);
+  const totalCount = useSelector(state => state.posts.totalCount);
 
   useEffect(() => {
     if (inView || number < 3) {
-      props.getNextPortionPostsThunk(number);
-      if (number < props.totalCount || props.totalCount === null) {
+      dispatch(getNextPortionPostsThunk(number));
+      if (number < totalCount || totalCount === null) {
         setNumber(number + 3);
       }
     }
   }, [inView]);
 
-  const eventClickExit = () => {
-    props.removeCookiesIdThunk();
+  const onClickExit = () => {
+    dispatch(removeCookiesIdThunk());
   };
 
   const listComment = (list, userId) => {
     return list.map(id => {
-      const comment = props.infoComments[id];
+      const comment = infoComments[id];
       return (
         <Comment
           key={comment.id}
@@ -47,28 +50,25 @@ const PostContainer = props => {
   };
 
   const listPosts = () => {
-    return props.posts.map((item, index, arr) => {
-      const like = item.infoPost.liked.some(i =>
-        i == props.userId ? true : false
-      );
+    return posts.map((item, index, arr) => {
+      const like = item.infoPost.liked.some(i => (i == userId ? true : false));
       return (
         <div className="post" key={item.postId}>
           <div ref={index === arr.length - 1 ? ref : undefined}></div>
-          <Post
-            store={item}
-            like={like ? likeTrye : likeFalse}
+          <Content
+            key={item.postId}
+            store={item.infoPost}
             id={item.postId}
+            like={like ? likeTrye : likeFalse}
             liked={like ? true : false}
-            //ref={index === arr.length - 1 ? ref : undefined}
-          />
+          ></Content>
 
           <NewComments
-            setNewCommentThunk={props.setNewCommentThunk}
             idPosts={item.postId}
-            commentId={Object.keys(props.infoComments).length + 1}
-            userId={props.userId}
+            commentId={Object.keys(infoComments).length + 1}
+            userId={userId}
           />
-          {listComment(item.infoPost.comments, props.userId)}
+          {listComment(item.infoPost.comments, userId)}
         </div>
       );
     });
@@ -76,23 +76,10 @@ const PostContainer = props => {
 
   return (
     <>
-      <button onClick={eventClickExit}>выход</button>
+      <button onClick={onClickExit}>выход</button>
       {listPosts()}
     </>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    posts: state.posts.posts,
-    infoComments: state.posts.infoComments,
-    userId: state.posts.userId,
-    totalCount: state.posts.totalCount,
-  };
-};
-
-export default connect(mapStateToProps, {
-  removeCookiesIdThunk,
-  getNextPortionPostsThunk,
-  setNewCommentThunk,
-})(PostContainer);
+export default Posts;

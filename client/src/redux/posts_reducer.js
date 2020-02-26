@@ -260,6 +260,7 @@ export const removeCookiesIdThunk = () => {
     const resolve = await exitForUser();
     if (resolve.data) {
       dispatch(setUserId(null));
+      window.location.replace(`http://localhost:3000/entrance`);
     }
   };
 };
