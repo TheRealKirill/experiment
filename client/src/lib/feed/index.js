@@ -1,0 +1,12 @@
+export * from './feedActions';
+export { default as feedReducer } from './feedReducer';
+export { default as feedAddComment } from './feedAddComment';
+export { default as feedEventLike } from './feedEventLike';
+export { default as feedSetNewState } from './feedSetNewState';
+export { default as setTotalCount } from './setTotalCount';
+export { default as setLikedFeed } from './setLikedFeed';
+export { default as setNewCommentFeed } from './setNewCommentFeed';
+export { default as getNextPortionPostsFeed } from './getNextPortionPostsFeed';
+export { default as requestLikedUser } from './requestLikedUser';
+export { default as requestNewComment } from './requestNewComment';
+export { default as requestNextPortionPost } from './requestNextPortionPost';
